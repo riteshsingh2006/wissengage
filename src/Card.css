@@ -1,0 +1,19 @@
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 50px rgba(191, 16, 118, 0.1);
+  box-sizing: 10px;
+  transition: 0.3s;
+  width: 100%;
+  align-items: center;
+}
+
+.container {
+  padding: 2px 16px;
+  padding-top: 2px 16px;
+}
+
+.centered-image {
+  text-align: center;
+  margin-top: 1cm;
+}
