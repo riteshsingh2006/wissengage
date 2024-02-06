@@ -24,14 +24,14 @@ export default function Form() {
   const margin = { margin: "0 5px" };
   return (
     <div className="Form">
-      <Grid style={{ padding: "80px 5px 0 5px" }}>
+      <Grid style={{ padding: "10px 5px 10px 5px"}}>
         <Card style={{ maxWidth: 600, margin: "0 auto" }}>
           <CardContent>
-            <Typography variant="h4" color="primary">
+            <Typography variant="h4" color="#f06292">
               FeedBack
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              Fill all the mandatory fields to Submit the FeedBack.
+              Fill all the mandatory fields to Submit the Feedback.
             </Typography>
             <br></br>
             <form>
@@ -57,15 +57,17 @@ export default function Form() {
                 </Grid>
                 <Grid xs={6} sm={6} item>
                   <FormControl>
-                    <FormLabel className="department-label">Department</FormLabel>
+                    <FormLabel className="department-label">
+                      Department
+                    </FormLabel>
                     <br></br>
                     <RadioGroup
                       defaultValue="tech"
                       name="radio-buttons-group"
-                      //row
                     >
                       <FormControlLabel
                         value="tech"
+                    
                         control={<Radio />}
                         label="Tech"
                       />
@@ -102,16 +104,21 @@ export default function Form() {
                     name="comment"
                     label="Comment"
                     variant="outlined"
+                    multiline
                     fullWidth="true"
-                    required="false"
                   />
                 </Grid>
                 <Box
                   sx={{
                     "& > legend": { mt: 2 },
                   }}
+                  style={{
+                    margin:'10px' ,textAlign:'left'}
+                  }
                 >
-                  <Typography component="legend">Hospatility/Facilites</Typography>
+                  <Typography component="legend">
+                    Hospatility/Facilites
+                  </Typography>
                   <Rating
                     name="simple-controlled"
                     value={value1}
@@ -127,7 +134,9 @@ export default function Form() {
                       setValue2(newValue);
                     }}
                   />
-                  <Typography component="legend">Overall Performance</Typography>
+                  <Typography component="legend">
+                    Overall Performance
+                  </Typography>
                   <Rating
                     name="simple-controlled"
                     value={value3}
@@ -144,7 +153,7 @@ export default function Form() {
                     style={margin}
                     type="reset"
                     variant="outlined"
-                    color="primary"
+                    color="primary"   
                   >
                     Clear
                   </Button>
