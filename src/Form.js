@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Form.css";
 import {
   Grid,
@@ -18,13 +18,24 @@ import {
 import { inputFormElements } from "./formElements";
 
 export default function Form() {
-  const [value1, setValue1] = React.useState(0);
-  const [value2, setValue2] = React.useState(0);
-  const [value3, setValue3] = React.useState(0);
+  const [rating,setRating]= useState([0,0,0]);
+  const [radio,setRadio]=useState('tech');
+  const handleRatingChange = (value, index) => {
+    const newRating = [...rating];
+    newRating[index] = value;
+    setRating(newRating);
+  };
+  
+  const clearItems=()=>{
+    setRadio('tech')
+    setRating([0,0,0])
+    console.log(rating)
+  }
+
   const margin = { margin: "0 5px" };
   return (
     <div className="Form">
-      <Grid style={{ padding: "10px 5px 10px 5px"}}>
+      <Grid>
         <Card style={{ maxWidth: 600, margin: "0 auto" }}>
           <CardContent>
             <Typography variant="h4" color="#f06292">
@@ -55,19 +66,18 @@ export default function Form() {
                     required="true"
                   />
                 </Grid>
-                <Grid xs={6} sm={6} item>
-                  <FormControl>
+                <Grid xs={12} sm={12} align="left" item>
+                  <FormControl className="department-control">
                     <FormLabel className="department-label">
                       Department
                     </FormLabel>
                     <br></br>
                     <RadioGroup
-                      defaultValue="tech"
+                      defaultValue={radio}
                       name="radio-buttons-group"
                     >
                       <FormControlLabel
                         value="tech"
-                    
                         control={<Radio />}
                         label="Tech"
                       />
@@ -117,31 +127,31 @@ export default function Form() {
                   }
                 >
                   <Typography component="legend">
-                    Hospatility/Facilites
+                    How much you rate the facilities and hospitality provided by wissen to their employees ?
                   </Typography>
                   <Rating
                     name="simple-controlled"
-                    value={value1}
+                    value={rating[0]}
                     onChange={(event, newValue) => {
-                      setValue1(newValue);
+                      handleRatingChange(newValue,0);
                     }}
                   />
-                  <Typography component="legend">Growth</Typography>
+                  <Typography component="legend">How much you rate the growth in the role and responsibilties inside wissen technology  ?</Typography>
                   <Rating
                     name="simple-controlled"
-                    value={value2}
+                    value={rating[1]}
                     onChange={(event, newValue) => {
-                      setValue2(newValue);
+                      handleRatingChange(newValue,1);
                     }}
                   />
                   <Typography component="legend">
-                    Overall Performance
+                    How much you rate the overall performance of organization in terms of valuation and capitalization?
                   </Typography>
                   <Rating
                     name="simple-controlled"
-                    value={value3}
+                    value={rating[2]}
                     onChange={(event, newValue) => {
-                      setValue3(newValue);
+                      handleRatingChange(newValue,2);
                     }}
                   />
                 </Box>
@@ -154,6 +164,7 @@ export default function Form() {
                     type="reset"
                     variant="outlined"
                     color="primary"   
+                    onClick={clearItems}
                   >
                     Clear
                   </Button>

@@ -1,4 +1,5 @@
 .card {
+  text-align: center;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 50px rgba(191, 16, 118, 0.1);
@@ -16,4 +17,19 @@
 .centered-image {
   text-align: center;
   margin-top: 1cm;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.hoverable-text{
+  color: darkblue;
+  
+}
+.hoverable-text:hover {
+  color: #ff00bf;
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  text-decoration: underline; /* Add underline on hover (optional) */
 }
